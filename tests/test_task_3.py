@@ -1,8 +1,9 @@
-import pytest
 
-from task_3 import mentors, courses, durations, create_courses_list, get_duration_index, get_mcount_index,\
-    create_indexes_d, create_indexes_m, get_result
+obj = [
+        'Связи нет', 'Порядок курсов по длительности: [2, 0, 1, 3]',
+       'Порядок курсов по количеству преподавателей: [2, 3, 1, 0]'
+    ]
 
 
-def test_result_3():
-
+def test_result_3(get_data_from_task_3):
+    assert get_data_from_task_3 == obj

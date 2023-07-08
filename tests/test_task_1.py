@@ -1,6 +1,4 @@
-import pytest
 from task_1 import mentors, create_mentors_list, create_all_names_list, sorting, count_popular_names, get_result
-
 
 
 def test_result_1():

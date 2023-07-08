@@ -1,7 +1,9 @@
 # # Задание "Узнайте топ-3 популярных имен"
 
-courses = ["Python-разработчик с нуля", "Java-разработчик с нуля",
-		   "Fullstack-разработчик на Python", "Frontend-разработчик с нуля"]
+courses = [
+	"Python-разработчик с нуля", "Java-разработчик с нуля",
+		   "Fullstack-разработчик на Python", "Frontend-разработчик с нуля"
+	]
 
 mentors = [
 	["Евгений Шмаргунов", "Олег Булыгин", "Дмитрий Демидов", "Кирилл Табельский", "Александр Ульянцев",
@@ -17,9 +19,6 @@ mentors = [
 	["Владимир Чебукин", "Эдгар Нуруллин", "Евгений Шек", "Валерий Хаслер", "Татьяна Тен", "Александр Фитискин",
 	 "Александр Шлейко", "Алена Батицкая", "Александр Беспоясов", "Денис Ежков", "Николай Лопин", "Михаил Ларченко"]
 ]
-
-
-# добавьте сюда ваш код из Задачи 1
 
 
 def create_mentors_list(mentors):
@@ -38,32 +37,28 @@ def create_all_names_list(all_list):
 		all_names_list.append(name[0])
 	return all_names_list
 
+
 def sorting(all_names_list):
 	unique_names = set(all_names_list)
 	all_names_sorted = sorted(unique_names)
 	all_names_sorted = ', '.join(all_names_sorted)
 	return unique_names
 
-# уникальные имена будут в unique_names
-# подсчитайте встречаемость каждого имени через list.count()
 
 def count_popular_names(unique_names, all_names_list):
 	popular = []
 	for name in unique_names:
-		popular.append([name, all_names_list.count(name)]) # добавьте  подсчет имен
+		popular.append([name, all_names_list.count(name)])
 	popular.sort(key=lambda x: x[1], reverse=True)
 	return popular
-# это код для сортировки списка с элементами вида [имя, количество] по убыванию встречаемости
-# используйте его как есть (или при желании можете написать собственный :))
 
-
-# получите топ-три самых часто встречающихся имен из списка popular
-# подсказка: возьмите срез списка
 
 def get_result(popular):
 	top_3 = popular[0:3]
-	result = f'{top_3[0][0]}: {top_3[0][1]} раз(а), {top_3[1][0]}: {top_3[1][1]} раз(а), {top_3[2][0]}: {top_3[2][1]} раз(а)'
-	print(f'{top_3[0][0]}: {top_3[0][1]} раз(а), {top_3[1][0]}: {top_3[1][1]} раз(а), {top_3[2][0]}: {top_3[2][1]} раз(а)')
+	result = f'{top_3[0][0]}: {top_3[0][1]} раз(а), {top_3[1][0]}: {top_3[1][1]} раз(а),' \
+			 f' {top_3[2][0]}: {top_3[2][1]} раз(а)'
+	print(f'{top_3[0][0]}: {top_3[0][1]} раз(а), {top_3[1][0]}: {top_3[1][1]} раз(а),'
+		  f' {top_3[2][0]}: {top_3[2][1]} раз(а)')
 	return result
 
 
@@ -75,4 +70,4 @@ if __name__ == "__main__":
 	count_popular_names(sorting(create_all_names_list(create_mentors_list(mentors))),
 						create_all_names_list(create_mentors_list(mentors)))
 	get_result(count_popular_names(sorting(create_all_names_list(create_mentors_list(mentors))),
-								   create_all_names_list(create_mentors_list(mentors))))
+								create_all_names_list(create_mentors_list(mentors))))
