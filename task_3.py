@@ -19,46 +19,25 @@ mentors_1 = [
 durations = [14, 20, 12, 20]
 
 
-def create_courses_list(courses, mentors, durations):
+def get_result(mentors, courses, durations):
     courses_list = []
     for course, mentor, duration in zip(courses, mentors, durations):
         course_dict = {"title": course, "mentors": mentor, "duration": duration}
         courses_list.append(course_dict)
-    return courses_list
-
-
-def get_duration_index(courses_list):
-
     duration_index = []
     for index, course in enumerate(courses_list):
         duration_index.append([course["duration"], index])
     duration_index.sort()
-    return duration_index
-
-
-def get_mcount_index(courses_list):
     mcount_index = []
     for index, course in enumerate(courses_list):
         mcount_index.append([len(course["mentors"]), index])  # напишите код по аналогии с duration_index
     mcount_index.sort()
-    return mcount_index
-
-
-def create_indexes_d(duration_index):
     indexes_d = []
     for duration, index in duration_index:
         indexes_d.append(index)
-    return indexes_d
-
-
-def create_indexes_m(mcount_index):
     indexes_m = []
     for duration, index in mcount_index:
         indexes_m.append(index)
-    return indexes_m
-
-
-def get_result(indexes_d, indexes_m):
     res = []
     print("Связь есть" if indexes_d == indexes_m else "Связи нет")
     res.append("Связь есть" if indexes_d == indexes_m else "Связи нет")
@@ -68,12 +47,6 @@ def get_result(indexes_d, indexes_m):
     res.append(f"Порядок курсов по количеству преподавателей: {indexes_m}")
     return res
 
-
 if __name__ == "__main__":
-    create_courses_list(courses_1, mentors_1, durations)
-    get_duration_index(create_courses_list(courses_1, mentors_1, durations))
-    get_mcount_index(create_courses_list(courses_1, mentors_1, durations))
-    create_indexes_d(get_duration_index(create_courses_list(courses_1, mentors_1, durations)))
-    create_indexes_m(get_mcount_index(create_courses_list(courses_1, mentors_1, durations)))
-    res = get_result(create_indexes_d(get_duration_index(create_courses_list(courses_1, mentors_1, durations))),
-               create_indexes_m(get_mcount_index(create_courses_list(courses_1, mentors_1, durations))))
+
+    get_result(mentors_1, courses_1, durations)
