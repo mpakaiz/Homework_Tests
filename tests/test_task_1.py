@@ -6,5 +6,3 @@ def test_result_1():
     obj = get_result(mentors)
 
     assert res == obj
-
-

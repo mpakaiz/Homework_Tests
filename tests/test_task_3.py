@@ -7,3 +7,7 @@ obj = [
 
 def test_result_3(get_data_from_task_3):
     assert get_data_from_task_3 == obj
+
+def test_result_5(get_data_from_task_3):
+    assert len(get_data_from_task_3) == len(obj)
+
